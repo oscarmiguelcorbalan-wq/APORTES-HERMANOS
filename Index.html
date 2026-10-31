@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Aportes">
+<meta name="theme-color" content="#2f5d50">
+<title>Aportes de los hermanos</title>
+<style>
+  html,body{margin:0;height:100%;background:#f6f4ef;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+  #aviso{position:fixed;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:24px;color:#1f2328}
+  #aviso a{color:#2f5d50;font-weight:600}
+</style>
+</head>
+<body>
+<!-- ↓↓↓ PEGÁ AQUÍ ENTRE LAS COMILLAS LA URL DE TU APLICACIÓN WEB (la que termina en /exec) ↓↓↓ -->
+<script>const URL_APP = "https://script.google.com/macros/s/AKfycbxhUswVg_-JFZvF9e5dTHCdd5hpBY-O0hk22aEiO-Fe3uhHjvEUPR5w5_qEay7dd0SB/exec";</script>
+
+<iframe id="app" allow="camera; clipboard-write" title="Aportes de los hermanos"></iframe>
+<div id="aviso"><div>
+  <p>No se pudo cargar la app aquí.</p>
+  <p><a id="abrir" href="#">Abrir la app directamente</a></p>
+</div></div>
+<script>
+  const f = document.getElementById('app');
+  if (URL_APP.startsWith('https://script.google.com/')) {
+    f.src = URL_APP;
+    document.getElementById('abrir').href = URL_APP;
+  } else {
+    f.style.display = 'none';
+    document.getElementById('aviso').style.display = 'flex';
+    document.getElementById('aviso').firstElementChild.innerHTML =
+      '<p>Falta poner la URL de la app en el archivo index.html (la línea URL_APP).</p>';
+  }
+</script>
+</body>
+</html>
